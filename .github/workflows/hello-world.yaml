@@ -1,0 +1,16 @@
+name: Hello World workflow
+run-name: Triggered by @${{ github.actor }}
+on: 
+ - push
+ - workflow_dispatch
+
+jobs:
+   hello-job:
+     runs-on: ubuntu-latest
+     steps:
+       - run: echo "Hello world"
+   bye-job:
+     runs-on: ubuntu-latest
+     steps:
+       - run: exit 1
+       - run: echo "Bye world"
