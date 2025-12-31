@@ -1,7 +1,6 @@
 name: Hello World workflow
-run-name: Triggered by @${{ github.actor }} by @${{ github.event_name }} event
+run-name: Triggered by @${{ github.actor }} by ${{ github.event_name }} event
 on: 
- - push
  - workflow_dispatch
 
 jobs:
