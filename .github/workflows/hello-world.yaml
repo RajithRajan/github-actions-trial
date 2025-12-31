@@ -12,7 +12,7 @@ jobs:
    bye-job:
      runs-on: ubuntu-latest
      steps:
-       - run: exit 1
+       - run: exit 0
          name: Bye-job-step1
        - run: echo "Bye world"
          name: Bye-job-step2
