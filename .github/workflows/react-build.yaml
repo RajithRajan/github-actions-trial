@@ -1,0 +1,22 @@
+name: React app build
+run-name: Triggered by @${{ github.actor }} by ${{ github.event_name }} event
+on: 
+ - workflow_dispatch
+
+jobs:
+   build:
+     runs-on: ubuntu-latest
+     defaults:
+       run:
+         working-directory: example-projects\react-app
+     steps:
+       - name: Checkout code
+         uses: actions/checkout@v4
+       - name: Setup react
+         uses: actions/setup-node@v4
+         with:
+          node-version: '25.x'
+       - name: Install dependency
+         run: npm ci
+       - name: Run unit test
+         run: npm run test
