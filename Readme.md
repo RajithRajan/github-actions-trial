@@ -58,7 +58,12 @@ e.g.
   etc
 
 ## Workflow Contexts 
-GitHub provides multiple sources of data under different contexts
+Contexts are a way to access information about workflow runs, variables, runner environments, jobs, and steps. Each context is an object. 
+
+Context can be accessed using the expression syntax. 
+```
+${{ <context> }}
+```
 - **github**
   - Commit SHA
   - Event name
