@@ -78,3 +78,29 @@ ${{ <context> }}
 
 ### Ref
 [contexts](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts)
+
+## Expressions
+Expression is used dynamic values in workflow. Should use `${{ <expression> }}` syntax and can be combination of
+- Literal values
+- Context values
+- Functions 
+
+## Variables & Secrets 
+Variables and Secrets can be defined at
+- Organisation 
+- Repository 
+- Environments 
+
+## Functions 
+Functions can be 
+- General purpose functions 
+  - contains()
+  - startsWith()
+  - endsWith()
+  - fromJSON()
+  - toJSON()
+- Status check functions 
+  - success()
+  - failure()
+  - always()
+  - cancelled()
