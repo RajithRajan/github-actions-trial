@@ -109,3 +109,4 @@ Functions can be
 - Steps execute only if previous step was successful, this in standard execution.
 - We can use `if:` to change this behaviour using status check functions.
 - Using `needs:` keyword at jobs to create dependency between jobs.
+- Using `continue-on-error:` keyword on job we can mark the job pass even if any containing steps fails.
