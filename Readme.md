@@ -56,3 +56,20 @@ e.g.
   - tag/tag_ignore - If tags are pushed
   - paths/paths_ignore - If files are changed in specific path  
   etc
+
+## Workflow Contexts 
+GitHub provides multiple sources of data under different contexts
+- **github**
+  - Commit SHA
+  - Event name
+  - Ref of branch or tag triggering the workflow 
+- **env**
+  - Contains variables that have been defined in a workflow, job or step. Change based on which part of workflow is executing.
+- **inputs**
+  - Contains input properties passed via the keyword with to an action, reusable workflow or manually triggered workflow.
+- **vars**
+  - Contains custom configuration variables set at the organisation, repository and environment levels.
+- secrets, strategy, matrix, needs etc
+
+### Ref
+[contexts](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts)
