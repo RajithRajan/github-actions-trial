@@ -104,3 +104,8 @@ Functions can be
   - failure()
   - always()
   - cancelled()
+
+## Controlling the Execution flow
+- Steps execute only if previous step was successful, this in standard execution.
+- We can use `if:` to change this behaviour using status check functions.
+- Using `needs:` keyword at jobs to create dependency between jobs.
