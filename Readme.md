@@ -112,7 +112,7 @@ Functions can be
 - Using `continue-on-error:` keyword on job we can mark the job pass even if any containing steps fails.
 
 ## Inputs 
-Inputs can be used to pass specific information to workflow or action which would be used during execution.
+Inputs can be used to pass specific information to workflow(dispatch/call) or action which would be used during execution.
 ```
 inputs:
   action:
@@ -130,4 +130,40 @@ inputs:
     description: Run performance test after deployment 
   environment:
     type: environment
+```
+
+## Outputs
+Output data from jobs for later usage, these are stored in different files for each step
+```
+jobs:
+  welcome:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.step1.outputs.NAME}}
+    steps:
+      - id: step1
+        run: echo "NAME=Lauro" >> "$GITHUB_OUTPUT"
+  goodbye:
+    runs-on: ubuntu-latest
+    needs: welcome
+    steps:
+    - run: echo "Bye, ${{ needs.welcome.outputs.name}}"
+```
+
+## Caching
+Speed up workflow by caching the dependency which can be used to skip downloading same dependency for each build.
+```
+steps:
+  - uses: actions/cache@v3
+    id: cache
+    with:
+      path: node_modules
+      key: ${{ had files('**/package-lock.json') }}
+  - name: Install dependencies
+    if: steps.cache.outputs.cacahe-hit != 'true:
+    run: npm ci
+  - name: Lint & test
+    run: |
+      npm run lint
+      npm run test
 ```
