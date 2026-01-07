@@ -192,3 +192,12 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 ```
+
+## Custom Actions
+Requires an action.yaml file and should have its own repository to be reused by other repos.
+- Composite Actions 
+  - Simplest types of custom, it is grouping of other GitHub Actions.
+- JavaScript Actions 
+  - Allows writing any type of custom logic. @actions packages provide lot of functionality. Requires JavaScript knowledge and Node environment.
+- Docker Actions
+  - Allows writing any type of custom logic in any programming language. No @actions package support.
