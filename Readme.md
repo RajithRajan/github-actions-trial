@@ -176,4 +176,19 @@ Share data between jobs in a workflow and store data once the workflow has compl
 ## Matrices 
 Runs several variations of the same job
 ```
+jobs:
+  backwards-compatibility:
+    name: ${{ matrix.os }}-${{ matrix.node }}
+    strategy:
+      matrix:
+        node: [14, 16, 18]
+        os:
+          - ubuntu-latest 
+          - macos-latest
+          - windows-latest
+    runs-on: ${{ matrix.os }}
+    steps: 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
 ```
