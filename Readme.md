@@ -110,3 +110,24 @@ Functions can be
 - We can use `if:` to change this behaviour using status check functions.
 - Using `needs:` keyword at jobs to create dependency between jobs.
 - Using `continue-on-error:` keyword on job we can mark the job pass even if any containing steps fails.
+
+## Inputs 
+Inputs can be used to pass specific information to workflow or action which would be used during execution.
+```
+inputs:
+  action:
+    type: choice 
+    description: What needs to be done
+    options:
+    - build
+    - build & test
+    - build, test & deployment
+    - deployment 
+  reason:
+    required: true
+  run-performance-test:
+    type: Boolean
+    description: Run performance test after deployment 
+  environment:
+    type: environment
+```
