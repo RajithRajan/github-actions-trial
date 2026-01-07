@@ -151,7 +151,7 @@ jobs:
 ```
 
 ## Caching
-Speed up workflow by caching the dependency which can be used to skip downloading same dependency for each build.
+Speed up workflow by caching the dependency which can be used to skip downloading same dependency for each build. Caches are stored for 7D.
 ```
 steps:
   - uses: actions/cache@v3
@@ -169,6 +169,11 @@ steps:
 ```
 
 ## Artifacts
-Share data between jobs in a workflow and store data once the workflow has completed.
+Share data between jobs in a workflow and store data once the workflow has completed. By default it's stored for 90D.
 - actions/upload-artifact@v4
 - actions/download-artifact@v5
+
+## Matrices 
+Runs several variations of the same job
+```
+```
