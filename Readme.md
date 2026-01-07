@@ -167,3 +167,8 @@ steps:
       npm run lint
       npm run test
 ```
+
+## Artifacts
+Share data between jobs in a workflow and store data once the workflow has completed.
+- actions/upload-artifact@v4
+- actions/download-artifact@v5
