@@ -231,3 +231,10 @@ jobs:
       with:
         aws-region: ${{ vars.AWS_REGION }}
 ```
+
+## Managing Concurrency 
+There might be cases where you don't want to run build job for a commit if there were subsequent commits on same branch,this can be done by defining concurrency. Concurrency can be defined at workflow level or at job level.
+```
+concurrency:
+  group: ${{ gitHub.workflow }}-${{ gitHub.ref }}
+```
