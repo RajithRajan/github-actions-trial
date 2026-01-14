@@ -201,3 +201,33 @@ Requires an action.yaml file and should have its own repository to be reused by 
   - Allows writing any type of custom logic. @actions packages provide lot of functionality. Requires JavaScript knowledge and Node environment.
 - Docker Actions
   - Allows writing any type of custom logic in any programming language. No @actions package support.
+  - While defining the action we can provide either an image or Docker file location. In case of docker file it would be built on each run, so it better to provide image of the build could take some time for build.
+
+## Reusable Workflow 
+It's always advisable to create reusable work flow to reduce duplication and to set some standards. Any workflow can be made Reusable by adding `workflow_call` to the top-level `on` key of the workflow definition. These workflow are at job and not at step level. env variables are not passed to called workflow.
+**Reusable workflow**
+```
+on:
+  workflow_call:
+    inputs:
+      aws-region:
+        type: string
+      cluster:
+        type: string
+    secrets:
+      auth-token:
+        type: string
+    outputs:
+      server-url:
+        value: <value>
+```
+**Caller workflow**
+```
+jobs:
+  backend-infra:
+    uses: reusable-deploy@v1
+      secrets:
+        auth-token: ${{ secrets.GH_PAT }}
+      with:
+        aws-region: ${{ vars.AWS_REGION }}
+```
